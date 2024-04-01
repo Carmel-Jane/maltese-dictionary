@@ -29,8 +29,14 @@ if(inputValue.length){
 }
 }, [inputValue])
 
-console.log(response)
+if(loading){
+    return <h1>Loading...</h1>
+}
 
+if(error)
+{
+return <h3 className ="text-center mt-10 font-semibold text-gray-500">Error - no definitions found</h3>
+}
 return(
     <div className="container mx-auto p-4 max-w-2xl">
 <div>
