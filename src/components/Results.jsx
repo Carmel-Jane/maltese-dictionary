@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { InputContext } from "../App";
 
+
 axios.defaults.baseURL = 'https://mlrs.research.um.edu.mt/resources/gabra-api';
 
 const Results = () => {
@@ -47,15 +48,17 @@ const Results = () => {
         <div>
           <h3 className="text-2xl font-bold mt-4">Translations</h3>
           {response.results.map((result, index) => (
-            <div key={index}>
-              <p>Translation: {result.lexeme.lemma}</p>
-              <p>Root: {result.lexeme.root ? result.lexeme.root.radicals : 'N/A'}</p>
-              <p>Phonetic: {result.lexeme.phonetic}</p>
-              <p>Gender: {result.lexeme.gender === 'm' ? 'Male' : result.lexeme.gender === 'f' ? 'Female' : ''}</p>
-              <p>Type: {result.lexeme.pos}</p>
-              <hr />
-            </div>
-          ))}
+  <div key={index} className="p-4 border rounded mt-4 bg-gray-100">
+    <p>Maltese: {result.lexeme.lemma}</p>
+    {result.lexeme.glosses.map((gloss, index) => (
+        <p key={index}>English: {gloss.gloss}</p>
+    ))}
+    <p>Root: {result.lexeme.root ? result.lexeme.root.radicals : 'N/A'}</p>
+    <p>Phonetic: {result.lexeme.phonetic}</p>
+    <p>Gender: {result.lexeme.gender === 'm' ? 'Male' : result.lexeme.gender === 'f' ? 'Female' : ''}</p>
+    <p>Type: {result.lexeme.pos}</p>
+  </div>
+))}
         </div>
       )}
     </div>
