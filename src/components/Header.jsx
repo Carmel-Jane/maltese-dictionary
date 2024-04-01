@@ -2,7 +2,10 @@ import { useState } from "react"
 
 const Header = () => {
     const[value, setValue]= useState("")
+    const { inputValue, setInputValue } = useContext(InputContext)
+
     const handleInputChange = (e) => {setValue(e.target.value)}
+
     const handleSubmit = () => {setValue("")}
     return (
         <div className="bg-gray-700">
