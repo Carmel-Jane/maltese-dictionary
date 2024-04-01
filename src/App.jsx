@@ -14,6 +14,7 @@ function App() {
     <InputContext.Provider value={value}>
     <div className="App">
       <Header/>
+      <Results/>
     </div>
     </InputContext.Provider>
   );
