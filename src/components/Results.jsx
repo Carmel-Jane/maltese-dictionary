@@ -1,6 +1,12 @@
 import React from "react";
 
 const Results =() =>{
+const [response, setResponse] = useState(null)
+const [error, setError] = useState("")
+const [loading, setLoading] = useState(false)
+
+
+
 return(
     <div className="container mx-auto p-4 max-w-2xl">
 <div>
