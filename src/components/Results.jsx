@@ -1,9 +1,6 @@
-import React, { useEffect, useState, useContext, Link } from "react";
-import axios from "axios";
+import React, { useEffect, useState, useContext } from "react";
 import { InputContext } from "../App";
-
-
-axios.defaults.baseURL = 'https://mlrs.research.um.edu.mt/resources/gabra-api';
+import { fetchResults } from "../utils/api";
 
 const Results = () => {
   const [response, setResponse] = useState(null);
@@ -11,23 +8,23 @@ const Results = () => {
   const [loading, setLoading] = useState(false);
   const { inputValue } = useContext(InputContext);
 
-  const fetchResults = async (inputValue) => {
-    try {
-      setLoading(true);
-      const res = await axios.get(`/lexemes/search_gloss?s=${inputValue}`);
-      setResponse(res.data);
-      setError(null);
-      setLoading(false);
-    } catch (error) {
-      setError("An error occurred while fetching data.");
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    if (inputValue.length) {
-      fetchResults(inputValue);
-    }
+    const fetchData = async () => {
+      if (inputValue.length) {
+        try {
+          setLoading(true);
+          const data = await fetchResults(inputValue);
+          setResponse(data);
+          setError(null);
+        } catch (error) {
+          setError("An error occurred while fetching data.");
+        } finally {
+          setLoading(false);
+        }
+      }
+    };
+
+    fetchData();
   }, [inputValue]);
 
   if (loading) {
@@ -37,7 +34,7 @@ const Results = () => {
   if (error) {
     return (
       <h3 className="text-center mt-10 font-semibold text-gray-500">
-        Error - no definitions found
+        Error - {error}
       </h3>
     );
   }
@@ -49,13 +46,13 @@ const Results = () => {
           <h3>{response.results.length} results for {inputValue}</h3>
           <h3 className="text-2xl font-bold mt-4">Translations</h3>
           {response.results.map((result, index) => (
-  <div key={index} className="p-4 border rounded mt-4 bg-gray-100">
-    <p>Maltese: {result.lexeme.lemma}</p>
-    {result.lexeme.glosses.map((gloss, index) => (
-        <p key={index}>English: {gloss.gloss}</p>
-    ))}
-  </div>
-))}
+            <div key={index} className="p-4 border rounded mt-4 bg-gray-100">
+              <p>Maltese: {result.lexeme.lemma}</p>
+              {result.lexeme.glosses.map((gloss, index) => (
+                <p key={index}>English: {gloss.gloss}</p>
+              ))}
+            </div>
+          ))}
         </div>
       )}
     </div>

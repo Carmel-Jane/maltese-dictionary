@@ -2,6 +2,7 @@
   "name": "maltese-dictionary",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://mlrs.research.um.edu.mt/resources/gabra-api",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
