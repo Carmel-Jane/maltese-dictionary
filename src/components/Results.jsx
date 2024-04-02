@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, Link } from "react";
 import axios from "axios";
 import { InputContext } from "../App";
 
@@ -46,6 +46,7 @@ const Results = () => {
     <div className="container mx-auto p-4 max-w-2xl">
       {response && (
         <div>
+          <h3>{response.results.length} results for {inputValue}</h3>
           <h3 className="text-2xl font-bold mt-4">Translations</h3>
           {response.results.map((result, index) => (
   <div key={index} className="p-4 border rounded mt-4 bg-gray-100">
@@ -53,10 +54,6 @@ const Results = () => {
     {result.lexeme.glosses.map((gloss, index) => (
         <p key={index}>English: {gloss.gloss}</p>
     ))}
-    <p>Root: {result.lexeme.root ? result.lexeme.root.radicals : 'N/A'}</p>
-    <p>Phonetic: {result.lexeme.phonetic}</p>
-    <p>Gender: {result.lexeme.gender === 'm' ? 'Male' : result.lexeme.gender === 'f' ? 'Female' : ''}</p>
-    <p>Type: {result.lexeme.pos}</p>
   </div>
 ))}
         </div>
