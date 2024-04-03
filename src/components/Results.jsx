@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from "react";
 import { InputContext } from "../App";
 import { fetchResults } from "../utils/api";
+import { Link } from "react-router-dom";
+
 
 const Results = () => {
   const [response, setResponse] = useState(null);
@@ -47,6 +49,7 @@ const Results = () => {
           <h3 className="text-2xl font-bold mt-4">Translations</h3>
           {response.results.map((result, index) => (
             <div key={index} className="p-4 border rounded mt-4 bg-gray-100">
+          <Link to={`/word/${result.lexeme._id}`}>Go to Word Details</Link>
               <p>Maltese: {result.lexeme.lemma}</p>
               {result.lexeme.glosses.map((gloss, index) => (
                 <p key={index}>English: {gloss.gloss}</p>

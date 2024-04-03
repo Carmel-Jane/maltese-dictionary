@@ -8,3 +8,11 @@ export const fetchResults = async (inputValue) => {
     throw error;
   }
 };
+export const fetchWordDetails = async (id) => {
+  try {
+    const res = await axios.get(`/lexemes/${id}`);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
