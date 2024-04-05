@@ -25,16 +25,19 @@ const WordDetails = () => {
                 <div>
                     <p>Maltese: {wordDetails.lemma}</p>
                     <p>Part of Speech: {wordDetails.pos}</p>
-                    <p>Root: {wordDetails.root}</p>
-                    <p>Phonetic: {wordDetails.phonetic}</p>
-                    <p>Related: {wordDetails.related}</p>
+                    {wordDetails.root && <p>Root: {wordDetails.root.radicals}</p>}
+                    {wordDetails.phonetic ? (
+                        <p>Phonetic: {wordDetails.phonetic}</p>
+                    ) : (
+                        <p>No phonetic available</p>
+                    )}
                     {wordDetails.glosses.map((gloss, index) => (
                         <div key={index}>
-                            <p>English: {gloss.gloss}</p>
+                            <p>English Translation: {gloss.gloss}</p>
                             {gloss.examples ? (
                                 <ul>
                                     {gloss.examples.map((example, index) => (
-                                        <li key={index}>{example.example}</li>
+                                        <li key={index}>Example: {example.example}</li>
                                     ))}
                                 </ul>
                             ) : (
