@@ -1,28 +1,36 @@
-import { useParams } from 'react-router-dom';
-import React, {useEffect, useState} from 'react';
-import { fetchWordDetails } from '../utils/api';
-
+import { useParams, Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { fetchWordDetails, fetchRelatedLexemes } from '../utils/api';
 
 const WordDetails = () => {
     const { id } = useParams();
     const [wordDetails, setWordDetails] = useState(null);
+    const [relatedLexemes, setRelatedLexemes] = useState(null);
 
     useEffect(() => {
         fetchWordDetails(id)
           .then(data => {
             setWordDetails(data);
-            console.log(data)
           })
           .catch(error => {
             console.error("An error occurred while fetching word details:", error);
           });
-      }, [id]);
-      
+
+        fetchRelatedLexemes(id)
+            .then(words => {
+                setRelatedLexemes(words);
+                console.log(words);
+            })
+            .catch(error => {
+                console.error("An error occurred while fetching related lexemes:", error);
+            });
+    }, [id]);
+
     return (
-        <div>
-            <h1>Word Details</h1>
+        <div className="container mx-auto p-4 max-w-2xl">
+            <h1 className="text-2xl font-bold mt-4">Word Details</h1>
             {wordDetails && (
-                <div>
+                <div className="p-4 border rounded mt-4 bg-gray-100">
                     <p>Maltese: {wordDetails.lemma}</p>
                     <p>Part of Speech: {wordDetails.pos}</p>
                     {wordDetails.root && <p>Root: {wordDetails.root.radicals}</p>}
@@ -33,7 +41,7 @@ const WordDetails = () => {
                     )}
                     {wordDetails.glosses.map((gloss, index) => (
                         <div key={index}>
-                            <p>English Translation: {gloss.gloss}</p>
+                            <p>English Definition: {gloss.gloss}</p>
                             {gloss.examples ? (
                                 <ul>
                                     {gloss.examples.map((example, index) => (
@@ -47,7 +55,22 @@ const WordDetails = () => {
                     ))}
                 </div>
             )}
+            {relatedLexemes && (
+                <div>
+                    <h3 className="text-2xl font-bold mt-4">Related Words</h3>
+                    {relatedLexemes.map((lexeme, index) => (
+                        <div key={index} className="p-4 border rounded mt-4 bg-gray-100">
+                            <Link to={`/word/${lexeme._id}`}>Go to Word Details</Link>
+                            <p>Maltese: {lexeme.lemma}</p>
+                            {lexeme.glosses.map((gloss, index) => (
+                                <p key={index}>English Translation: {gloss.gloss}</p>
+                            ))}
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
-              }
-    export default WordDetails
+};
+
+export default WordDetails;

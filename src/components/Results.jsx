@@ -52,7 +52,7 @@ const Results = () => {
           <Link to={`/word/${result.lexeme._id}`}>Go to Word Details</Link>
               <p>Maltese: {result.lexeme.lemma}</p>
               {result.lexeme.glosses.map((gloss, index) => (
-                <p key={index}>English: {gloss.gloss}</p>
+                <p key={index}>English Translation: {gloss.gloss}</p>
               ))}
             </div>
           ))}

@@ -16,3 +16,12 @@ export const fetchWordDetails = async (id) => {
     throw error;
   }
 }
+
+export const fetchRelatedLexemes = async (id) => {
+  try {
+    const res = await axios.get(`/lexemes/related/${id}`);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+};

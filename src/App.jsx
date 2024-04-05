@@ -18,7 +18,7 @@ function App() {
     <InputContext.Provider value={value}>
       <Router>
         <div className="App">
-          <Header />
+        <Header inputValue={inputValue} setInputValue={setInputValue} />
           <Routes>
             <Route path="/" element={<Results />} />
             <Route path="/word/:id" element={<WordDetails />} />
