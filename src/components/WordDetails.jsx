@@ -30,23 +30,23 @@ const WordDetails = () => {
         <div className="container mx-auto p-4 max-w-2xl">
             <h1 className="text-2xl font-bold mt-4">Word Details</h1>
             {wordDetails && (
-                <div className="p-4 border rounded mt-4 bg-gray-100">
-                    <p>Maltese: {wordDetails.lemma}</p>
-                    <p>Part of Speech: {wordDetails.pos}</p>
-                    {wordDetails.root && <p>Root: {wordDetails.root.radicals}</p>}
-                    {wordDetails.phonetic ? (
-                        <p>Phonetic: {wordDetails.phonetic}</p>
-                    ) : (
-                        <p>No phonetic available</p>
-                    )}
+                <div className="p-4 border rounded mt-4 bg-gray-100 text-lg font-sans">
+                <p className="text-center underline text-2xl font-bold"><span className="text-red-800">{wordDetails.lemma}</span></p>
+                <p>Part of Speech: <span className="text-gray-600">{wordDetails.pos}</span></p>
+{wordDetails.root && <p>Root: <span className="text-gray-600">{wordDetails.root.radicals}</span></p>}
+{wordDetails.phonetic ? (
+    <p>Phonetic: <span className="text-gray-600">{wordDetails.phonetic}</span></p>
+) : (
+    <p>No phonetic available</p>
+)}
                     {wordDetails.glosses.map((gloss, index) => (
                         <div key={index}>
-                            <p>English Definition: {gloss.gloss}</p>
+                            <p>English Translation: <span className="text-blue-900">{gloss.gloss}</span></p>
                             {gloss.examples ? (
                                 <ul>
-                                    {gloss.examples.map((example, index) => (
-                                        <li key={index}>Example: {example.example}</li>
-                                    ))}
+                                   {gloss.examples.map((example, index) => (
+    <li key={index}>Example: <span className="text-red-800">{example.example}</span></li>
+))}
                                 </ul>
                             ) : (
                                 <p>No examples available</p>
@@ -59,18 +59,20 @@ const WordDetails = () => {
                 <div>
                     <h3 className="text-2xl font-bold mt-4">Related Words</h3>
                     {relatedLexemes.map((lexeme, index) => (
-                        <div key={index} className="p-4 border rounded mt-4 bg-gray-100">
-                            <Link to={`/word/${lexeme._id}`}>Go to Word Details</Link>
-                            <p>Maltese: {lexeme.lemma}</p>
+                        <div key={index} className="p-4 border rounded mt-4 bg-gray-100 text-lg font-sans">
+                            <Link to={`/word/${lexeme._id}`} className="text-blue-500 underline flex items-center">Go to Word Details
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 ml-2">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+    </svg>
+</Link>
+                            <p className="text-black">Maltese: <span className="text-red-800">{lexeme.lemma}</span></p>
                             {lexeme.glosses.map((gloss, index) => (
-                                <p key={index}>English Translation: {gloss.gloss}</p>
+                                <p key={index}>English Translation: <span className="text-blue-900">{gloss.gloss}</span></p>
                             ))}
                         </div>
                     ))}
                 </div>
             )}
         </div>
-    );
-};
-
+    );}
 export default WordDetails;
