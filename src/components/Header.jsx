@@ -1,5 +1,7 @@
 import { useState, useContext } from "react";
 import { InputContext } from "../App";
+import { useNavigate } from 'react-router-dom';
+
 
 const malteseCross = '/images/maltesecross.png';
 
@@ -7,7 +9,7 @@ const Header = () => {
     const [value, setValue] = useState("");
     const { inputValue, setInputValue } = useContext(InputContext);
 
-
+    const navigate = useNavigate();
 
     const handleInputChange = (e) => {
         setValue(e.target.value);
@@ -16,12 +18,14 @@ const Header = () => {
     const handleSubmit = () => {
         setInputValue(value);
         setValue("");
+        navigate('/');
     };
 
     const handleInputKeyDown = (e) => {
         if (e.key === "Enter") {
             setInputValue(value);
             setValue("");
+            navigate('/');
         }
     };
     return (

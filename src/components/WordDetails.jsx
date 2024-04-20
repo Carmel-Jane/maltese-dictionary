@@ -1,4 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate} from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { fetchWordDetails, fetchRelatedLexemes } from '../utils/api';
 
@@ -6,7 +6,9 @@ const WordDetails = () => {
     const { id } = useParams();
     const [wordDetails, setWordDetails] = useState(null);
     const [relatedLexemes, setRelatedLexemes] = useState(null);
-
+    const navigate = useNavigate()
+ 
+    
     useEffect(() => {
         fetchWordDetails(id)
           .then(data => {
@@ -19,7 +21,6 @@ const WordDetails = () => {
         fetchRelatedLexemes(id)
             .then(words => {
                 setRelatedLexemes(words);
-                console.log(words);
             })
             .catch(error => {
                 console.error("An error occurred while fetching related lexemes:", error);
@@ -28,6 +29,12 @@ const WordDetails = () => {
 
     return (
         <div className="container mx-auto p-4 max-w-2xl">
+   <button onClick={() => navigate(-1)} className="text-blue-500 underline text-lg px-4 py-2 flex items-center">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-6 w-6 mr-2">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+    </svg>
+    Go Back To Results 
+</button>
             <h1 className="text-2xl font-bold mt-4">Word Details</h1>
             {wordDetails && (
                 <div className="p-4 border rounded mt-4 bg-gray-100 text-lg font-sans">
