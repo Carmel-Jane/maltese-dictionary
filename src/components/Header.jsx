@@ -29,7 +29,6 @@ const Header = () => {
         }
     };
     return (
-        
         <div className="bg-gray-700">
             <div className="container mx-auto py-8 relative">
                 <div className="flex justify-center items-center position-relative">
@@ -44,7 +43,6 @@ const Header = () => {
                         alt="Maltese Cross"
                         className="h-16 w-16 absolute right-0 top-1/2 transform -translate-y-1/2"
                     />
-                    <Link to="/about" className="text-white mx-4 absolute top-1/2 right-20 transform -translate-y-1/2 bg-blue-500 px-3 py-1 rounded">About</Link>
                 </div>
                 <p className="text-center mt-1 mb-10 text-slate-300 text-lg">Find Maltese Words</p>
                 <div className="flex item-center justify-center mt-5">
@@ -70,6 +68,9 @@ const Header = () => {
                         Result for: <span className="text-white font-bold">{inputValue}</span>
                     </h3>
                 )}
+                <div className="absolute bottom-4 left-1/4">
+                <Link to="/about" className="text-white bg-blue-500 px-3 py-1 rounded">About</Link>
+            </div>
             </div>
         </div>
     );

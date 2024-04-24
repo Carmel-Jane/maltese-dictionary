@@ -38,7 +38,7 @@ const WordDetails = () => {
             <h1 className="text-2xl font-bold mt-4">Word Details</h1>
             {wordDetails && (
                 <div className="p-4 border rounded mt-4 bg-gray-100 text-lg font-sans">
-                <p className="text-center underline text-2xl font-bold"><span className="text-red-800">{wordDetails.lemma}</span></p>
+                <p className="text-center text-2xl font-bold"><span className="text-red-800">{wordDetails.lemma}</span></p>
                 <p>Part of Speech: <span className="text-gray-600">{wordDetails.pos}</span></p>
 {wordDetails.root && <p>Root: <span className="text-gray-600">{wordDetails.root.radicals}</span></p>}
 {wordDetails.phonetic ? (
