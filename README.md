@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# English to Maltese Dictionary
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Link To Web App
 
-## Available Scripts
+This application is deployed on [Netlify]
+The live application can be accessed [here](https://maltese-dictionary.netlify.app/).
 
-In the project directory, you can run:
+## Project Summary
 
-### `npm start`
+This is an English to Maltese dictionary that utilises the Ġabra API. Ġabra is a free, open lexicon for Maltese. 
+This project was built in order to show appreciation and raide awareness of the unqiue Maltese language.
+For more information about the Ġabra project and the Ġabra API, visit [here](https://mlrs.research.um.edu.mt/resources/gabra/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This project was built using the following technologies:
 
-### `npm test`
+- **React**: A JavaScript library for building user interfaces.
+- **Axios**: Promise based HTTP client for the browser and node.js.
+- **Netlify**: A platform for deploying and running web projects.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+React was chosen for its efficiency and flexibility in building interactive UIs. Axios was used for handling API requests, and Netlify was chosen for its simplicity and ease of use in deploying web applications.
 
-### `npm run build`
+## How to Use
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **Type in an English word** on the search bar.
+2. The search results will show **Maltese translations** of the searched word, and their English translation underneath.
+3. For more information about each Maltese translation, **click on the link** above the word that says 'See more details'.
+4. This will take you to a page which shows the **word root, phonetics, and example Maltese sentences** using the word.
+5. Underneath this, the page will display **related words** to the current word.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Local Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To set up this project locally:
 
-### `npm run eject`
+1. Fork or clone the repo from `https://github.com/Carmel-Jane/maltese-dictionary`.
+2. Run `npm install` in the terminal to install the necessary dependencies.
+3. Run `npm start` to start the development server and preview the application live in the browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Minimum Version Requirements
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Node.js : v21.6.1
