@@ -9,9 +9,15 @@ const About = () => {
             </div>
             <h2 className="text-2xl font-bold mt-4">How to Use</h2>
             <div className="p-4 border rounded mt-4 bg-gray-100 text-lg font-sans">
-                <p>Type in an English word on the search bar. The search results will show Maltese translations of the searched word, and their English translation underneath. For more information about each Maltese translation, click on the link above the word that says 'See more details'. This will take you onto a page which shows the word root, phonetics, and example Maltese sentences using the word. Underneath this, the page will display related words to the current word.</p>
-            </div>
-        </div>
+    <ul>
+        <li><strong>Type in an English word</strong> on the search bar.</li>
+        <li>The search results will show <strong>Maltese translations</strong> of the searched word, and their English translation underneath.</li>
+        <li>For more information about each Maltese translation, <strong>click on the link</strong> above the word that says 'See more details'.</li>
+        <li>This will take you to a page which shows the <strong>word root, phonetics, and example Maltese sentences</strong> using the word.</li>
+        <li>Underneath this, the page will display <strong>related words</strong> to the current word.</li>
+    </ul>
+</div>
+</div>
     );
 };
 export default About;
