@@ -8,7 +8,7 @@ The live application can be accessed [here](https://maltese-dictionary.netlify.a
 ## Project Summary
 
 This is an English to Maltese dictionary that utilises the Ġabra API. Ġabra is a free, open lexicon for Maltese. 
-This project was built in order to show appreciation and raide awareness of the unqiue Maltese language.
+This project was built in order to show appreciation and raise awareness of the unqiue Maltese language.
 For more information about the Ġabra project and the Ġabra API, visit [here](https://mlrs.research.um.edu.mt/resources/gabra/).
 
 ## Tech Stack
@@ -40,4 +40,7 @@ To set up this project locally:
 
 ## Minimum Version Requirements
 
-Node.js : v21.6.1
+- Node.js: v21.6.1
+- React: v18.2.0
+- Axios: v1.6.8
+- Tailwind CSS: v3.4.3
