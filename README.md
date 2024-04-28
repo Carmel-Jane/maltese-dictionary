@@ -17,9 +17,10 @@ This project was built using the following technologies:
 
 - **React**: A JavaScript library for building user interfaces.
 - **Axios**: Promise based HTTP client for the browser and node.js.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom user interfaces.
 - **Netlify**: A platform for deploying and running web projects.
 
-React was chosen for its efficiency and flexibility in building interactive UIs. Axios was used for handling API requests, and Netlify was chosen for its simplicity and ease of use in deploying web applications.
+React was chosen for its efficiency and flexibility in building interactive UIs. Axios was used for handling API requests. Tailwind CSS was used for its utility-first approach which allows for rapid UI development. Netlify was chosen for its simplicity and ease of use in deploying web applications.
 
 ## How to Use
 
